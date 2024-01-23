@@ -1,0 +1,36 @@
+{
+"manifestVersion": 1,
+  "id": "Nuget-Add-Sources-Utility",
+  "version": "0.0.1",
+  "name": "Nuget Add Sources",
+  "description": "A Build Step which adds nuget sources on the Agent.",
+  "publisher": "Amadeus-Hospitality",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "icons":
+    {
+      "default": "Images/package_600x600.jpg"
+    },
+  "contributions": [
+	{
+      "id": "build-task",
+      "description": "Task which adds nuget sources via a service endpoint.",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [ "ms.vss-distributed-task.tasks" ],
+      "properties": {
+        "name": "AddNugetSources"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "AddNugetSources"
+    },
+    {
+      "path": "Images/package_600x600.jpg", "addressable": true
+    }
+  ]
+}

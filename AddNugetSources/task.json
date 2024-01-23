@@ -1,0 +1,75 @@
+{
+  "id": "cf0a1f27-8543-4b21-acb1-d542a461ee41",
+  "name": "NugetAddSources",
+  "friendlyName": "Nuget Add Sources",
+  "description": "Task to run Nuget Add Sources Command using a Service Endpoint",
+  "author": "Amadeus Hospitality",
+  "helpMarkDown": "Replace with markdown to show in help",
+  "category": "Build",
+  "groups": [
+    {
+      "name": "nugetInfo",
+      "displayName": "Nuget General Information",
+      "isExpanded": true
+    },
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": true
+    }
+  ],
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Service Endpoint Nuget Add Sources Task",
+  "inputs": [
+    {
+      "name": "isDotNet",
+      "type": "boolean",
+      "label": "DotNet Restore",
+      "defaultValue": "false",
+      "groupName": "nugetInfo",
+      "required": false,
+      "helpMarkDown": "If this is true, it will add the nuget source for dotnet restore."
+    },
+    {
+      "name": "NugetFeedServiceEndpoint",
+      "type": "connectedService:Generic",
+      "label": "Nuget Service End Point",
+      "groupName": "nugetInfo",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Select the Nuget Feed end point to use. If needed, click on 'manage', and add a new Service Endpoint of type 'Generic Service Endpoint'"
+    },
+    {
+      "name": "NugetSources",
+      "type": "multiLine",
+      "label": "Sources",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "nugetInfo",
+      "helpMarkDown": "List of Nuget sources to be added. You can add multiple sources by entering multiple Feed Names on separate lines."
+    },
+    {
+      "name": "PathToNugetExe",
+      "type": "string",
+      "label": "Path To Nuget.exe",
+      "groupName": "nugetInfo",
+      "required": true
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "AddNugetSources.ps1",
+      "argumentFormat": ""
+    }
+  }
+}
